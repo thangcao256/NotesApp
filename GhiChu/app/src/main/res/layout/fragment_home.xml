@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    tools:viewBindingIgnore="true"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".MainActivity">
     <TextView
         android:id="@+id/tv1"
         android:layout_width="match_parent"
@@ -80,8 +82,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
-        android:tint="@color/colorWhite"
-        android:background="@color/colorAccent"
+        android:tint="@color/colorDarkBlack"
+        android:id="@+id/fabBtnCreateNote"
+        android:backgroundTint="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="@dimen/_20sdp"
