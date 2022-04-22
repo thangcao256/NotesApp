@@ -11,12 +11,15 @@ import com.thangcao.ghichu.entities.Notes
 abstract class NotesDatabase : RoomDatabase() {
     companion object{
         var notesDatabase:NotesDatabase? = null
+
         @Synchronized
         fun getDatabase(context: Context): NotesDatabase{
-            if (notesDatabase != null){
-                notesDatabase = Room.databaseBuilder(context
-                , NotesDatabase::class.java
-                ,"notes.db").build()
+            if (notesDatabase == null){
+                notesDatabase = Room.databaseBuilder(
+                    context
+                    , NotesDatabase::class.java
+                    ,"notes.db"
+                ).build()
             }
             return notesDatabase!!
         }

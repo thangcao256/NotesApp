@@ -75,6 +75,7 @@ class CreateNoteFragment : BaseFragment() {
             notes.subTitle = edNoteSubTitle.text.toString();
             notes.noteText = edNoteDesc.text.toString();
             notes.dateTime = currentDate;
+            Toast.makeText(context, "" + notes.subTitle + notes.dateTime, Toast.LENGTH_SHORT).show()
             context?.let {
                 NotesDatabase.getDatabase(it).noteDao().insertNotes(notes)
                 edNoteTitle.setText("")

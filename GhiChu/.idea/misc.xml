@@ -6,6 +6,7 @@
         <entry key="..\:/GhiChu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.166" />
         <entry key="..\:/GhiChu/app/src/main/res/drawable/background.xml" value="0.166" />
         <entry key="..\:/GhiChu/app/src/main/res/drawable/ic_back.xml" value="0.166" />
+        <entry key="..\:/GhiChu/app/src/main/res/drawable/ic_image.xml" value="0.1055" />
         <entry key="..\:/GhiChu/app/src/main/res/drawable/ic_search.xml" value="0.1" />
         <entry key="..\:/GhiChu/app/src/main/res/drawable/ic_tick.xml" value="0.166" />
         <entry key="..\:/GhiChu/app/src/main/res/drawable/note_color_1.xml" value="0.1" />
@@ -19,6 +20,7 @@
         <entry key="..\:/GhiChu/app/src/main/res/layout/fragment_create_note.xml" value="0.264" />
         <entry key="..\:/GhiChu/app/src/main/res/layout/fragment_home.xml" value="0.275" />
         <entry key="..\:/GhiChu/app/src/main/res/layout/fragment_home2.xml" value="0.275" />
+        <entry key="..\:/GhiChu/app/src/main/res/layout/item_rv_notes.xml" value="0.275" />
       </map>
     </option>
   </component>
