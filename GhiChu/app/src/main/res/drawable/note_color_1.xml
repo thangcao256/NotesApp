@@ -5,5 +5,4 @@
     <corners android:radius="@dimen/_100sdp"/>
     <stroke android:width="@dimen/_2sdp" android:color="@color/colorDefaultNote"/>
 
-
 </shape>
