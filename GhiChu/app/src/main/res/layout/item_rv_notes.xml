@@ -25,20 +25,35 @@
                 android:visibility="gone"
                 app:riv_corner_radius_top_left="@dimen/_10sdp"
                 app:riv_corner_radius_top_right="@dimen/_10sdp"/>
-            <TextView
-                android:id="@+id/tvTitle"
+            <RelativeLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_12ssp"
-                android:text="@string/notes"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:paddingTop="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:fontFamily="@font/manrope_bold"
-                android:textColor="@color/colorWhite"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="-4dp"
+                    android:layout_toStartOf="@+id/colorVieww"
+                    android:fontFamily="@font/manrope_bold"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="@string/notes"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/colorVieww"
+                    android:background="@color/colorDarkBlack"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_alignParentRight="true"
+                    android:adjustViewBounds="true"
+                    app:riv_corner_radius="@dimen/_10sdp"/>
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tvWebLink"
                 android:layout_width="match_parent"

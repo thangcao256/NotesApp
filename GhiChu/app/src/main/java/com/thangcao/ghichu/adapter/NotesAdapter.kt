@@ -40,9 +40,9 @@ class NotesAdapter() :
         holder.itemView.tvDateTime.text = arrList[position].dateTime
 
         if (arrList[position].color != null){
-            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(arrList[position].color))
+            holder.itemView.colorVieww.setBackgroundColor(Color.parseColor(arrList[position].color))
         }else{
-            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(R.color.colorLightBlack.toString()))
+            holder.itemView.colorVieww.setBackgroundColor(Color.parseColor(R.color.colorLightBlack.toString()))
         }
 
         if (arrList[position].imgPath != null){
