@@ -4,7 +4,7 @@
     <string name="notes_title">Tiêu đề</string>
     <string name="notes_sub_title">Mô tả</string>
     <string name="notes_desc">Nhập nội dung ghi chú</string>
-    <string name="web_url">Enter Web Url</string>
+    <string name="web_url">Nhập địa chỉ liên kết</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
     <string name="storage_permission_text">Ứng dụng cần được cấp quyền truy cập bộ nhớ.</string>

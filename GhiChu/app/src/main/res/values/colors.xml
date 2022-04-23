@@ -10,7 +10,7 @@
     <color name="colorDarkBlack">#10141C</color>
     <color name="colorYellow">#ffd633</color>
     <color name="colorBlue">#4e33ff</color>
-
+    <color name="colorBlackFaded">#131720</color>
     <color name="colorDefaultNote">#606570</color>
     <color name="colorBlueNote">#4e33ff</color>
     <color name="colorYellowNote">#ffd633</color>
