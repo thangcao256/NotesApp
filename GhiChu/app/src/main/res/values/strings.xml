@@ -7,7 +7,7 @@
     <string name="web_url">Enter Web Url</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
-    <string name="storage_permission_text">This app needs access to your storage.</string>
+    <string name="storage_permission_text">Ứng dụng cần được cấp quyền truy cập bộ nhớ.</string>
     <string name="search">Tìm kiếm</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

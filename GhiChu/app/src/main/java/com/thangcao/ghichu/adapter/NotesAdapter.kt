@@ -1,5 +1,6 @@
 package com.thangcao.ghichu.adapter
 
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,12 @@ class NotesAdapter(var arrList : List<Notes>) :
             holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(arrList[position].color))
         }else{
             holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(R.color.colorLightBlack.toString()))
+        }
+        if (arrList[position].imgPath != null){
+            holder.itemView.imgNote.setImageBitmap(BitmapFactory.decodeFile(arrList[position].imgPath))
+            holder.itemView.imgNote.visibility = View.VISIBLE
+        }else{
+            holder.itemView.imgNote.visibility = View.GONE
         }
     }
 

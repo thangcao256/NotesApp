@@ -9,6 +9,7 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -183,7 +184,13 @@ class NoteBottomSheetFragment : BottomSheetDialogFragment(){
             intent.putExtra("selectedColor",selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
         }
+
+        layoutImage.setOnClickListener {
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action","Image")
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+            dismiss()
+        }
+
     }
-
-
 }
