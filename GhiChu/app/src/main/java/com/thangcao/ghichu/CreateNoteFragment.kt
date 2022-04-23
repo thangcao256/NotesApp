@@ -112,7 +112,7 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
 
         imgDone.setOnClickListener {
             if (noteId != -1){
-//                updateNote()
+                updateNote()
             }else{
                 saveNote()
             }
@@ -123,18 +123,18 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
         }
 
         imgMore.setOnClickListener {
-            var noteBottomSheetFragment = NoteBottomSheetFragment.newInstance()
+            var noteBottomSheetFragment = NoteBottomSheetFragment.newInstance(noteId)
             noteBottomSheetFragment.show(
                 requireActivity().supportFragmentManager,
                 "Note Bottom Sheet Fragment"
             )
         }
 
-//        imgDelete.setOnClickListener {
-//            selectedImagePath = ""
-//            layoutImage.visibility = View.GONE
-//
-//        }
+        imgDelete.setOnClickListener {
+            selectedImagePath = ""
+            layoutImage.visibility = View.GONE
+
+        }
 
         btnOk.setOnClickListener {
             if (etWebLink.text.toString().trim().isNotEmpty()){
@@ -168,6 +168,33 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
 
     }
 
+    //Cập nhật ghi chú
+    private fun updateNote(){
+        launch {
+
+            context?.let {
+                var notes = NotesDatabase.getDatabase(it).noteDao().getSpecificNote(noteId)
+
+                notes.title = edNoteTitle.text.toString()
+                notes.subTitle = edNoteSubTitle.text.toString()
+                notes.noteText = edNoteDesc.text.toString()
+                notes.dateTime = currentDate
+                notes.color = selectedColor
+                notes.imgPath = selectedImagePath
+                notes.webLink = webLink
+
+                NotesDatabase.getDatabase(it).noteDao().updateNote(notes)
+                edNoteTitle.setText("")
+                edNoteSubTitle.setText("")
+                edNoteDesc.setText("")
+                layoutImage.visibility = View.GONE
+                imgNote.visibility = View.GONE
+                tvWebLink.visibility = View.GONE
+                requireActivity().supportFragmentManager.popBackStack()
+            }
+        }
+    }
+
     private fun getPathFromUri(contentUri: Uri): String? {
         var filePath:String? = null
         var cursor = requireActivity().contentResolver.query(contentUri,null,null,null,null)
@@ -193,7 +220,7 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
                         var bitmap = BitmapFactory.decodeStream(inputStream)
                         imgNote.setImageBitmap(bitmap)
                         imgNote.visibility = View.VISIBLE
-//                        layoutImage.visibility = View.VISIBLE
+                        layoutImage.visibility = View.VISIBLE
 
                         selectedImagePath = getPathFromUri(selectedImageUrl)!!
                     }catch (e:Exception){
@@ -201,6 +228,16 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
                     }
 
                 }
+            }
+        }
+    }
+
+    //Xóa ghi chú
+    private fun deleteNote(){
+        launch {
+            context?.let {
+                NotesDatabase.getDatabase(it).noteDao().deleteSpecificNote(noteId)
+                requireActivity().supportFragmentManager.popBackStack()
             }
         }
     }
@@ -244,6 +281,7 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
                 edNoteTitle.setText("")
                 edNoteSubTitle.setText("")
                 edNoteDesc.setText("")
+                layoutImage.visibility = View.GONE
                 imgNote.visibility = View.GONE
                 tvWebLink.visibility = View.GONE
                 requireActivity().supportFragmentManager.popBackStack()
@@ -316,18 +354,17 @@ class CreateNoteFragment : BaseFragment(), EasyPermissions.PermissionCallbacks, 
                     readStorageTask()
                     layoutWebUrl.visibility = View.GONE
                 }
-//
+
                 "WebUrl" -> {
                     layoutWebUrl.visibility = View.VISIBLE
                 }
-//                "DeleteNote" -> {
-//                    //delete note
-//                    deleteNote()
-//                }
-//
-//
+                "DeleteNote" -> {
+                    //delete note
+                    deleteNote()
+                }
+
                 else -> {
-//                    layoutImage.visibility = View.GONE
+                    layoutImage.visibility = View.GONE
                     imgNote.visibility = View.GONE
                     layoutWebUrl.visibility = View.GONE
                     selectedColor = p1.getStringExtra("selectedColor")!!
